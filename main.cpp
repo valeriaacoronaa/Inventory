@@ -3,7 +3,8 @@
 #include <vector>
 
 using namespace std;
-
+//prototype
+vector <string> listFromString(string);
 
 int main()
 {
@@ -23,4 +24,25 @@ int main()
 
     return 0;
 }
-           
+ 
+vector <string> listFromString(string input)
+{
+    string word = "";
+    vector <string> wordList;
+
+    for(int i=0; i<input.size(); i++)
+    {
+        if(input[i]!=',') 
+        {
+            word.append(1, input.at(i));
+        }
+        else
+        {
+            wordList.push_back(word); 
+            word= "";
+        }
+    }
+    
+    wordList.push_back(word);
+    return wordList;
+}
